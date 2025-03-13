@@ -1,11 +1,13 @@
 package com.github.sample
 
+import java.util.UUID
+
 /**
  * Model data class representing a customer.
- * @param name Full name of customer.
+ * @param id [UUID] of customer.
  * @param mail Mail address of customer.
  */
 data class Customer(
-    val name: String,
+    val id: UUID,
     val mail: String,
 )

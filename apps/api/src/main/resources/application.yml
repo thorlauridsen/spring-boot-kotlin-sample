@@ -1,3 +1,6 @@
+spring:
+  liquibase:
+    enabled: true
 springdoc:
   api-docs:
     enabled: true
