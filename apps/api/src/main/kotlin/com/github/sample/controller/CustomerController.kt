@@ -5,7 +5,7 @@ import com.github.sample.CustomerInput
 import com.github.sample.service.CustomerService
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.RequestMapping
+import java.net.URI
 import java.util.UUID
 
 /**
@@ -17,7 +17,6 @@ import java.util.UUID
  * @param customerService [CustomerService] service layer.
  */
 @Controller
-@RequestMapping("/customer")
 class CustomerController(private val customerService: CustomerService) : ICustomerController {
 
     /**
@@ -36,6 +35,9 @@ class CustomerController(private val customerService: CustomerService) : ICustom
      * @return Saved [Customer]
      */
     override fun saveCustomer(customer: CustomerInput): ResponseEntity<Customer> {
-        return ResponseEntity.ok(customerService.saveCustomer(customer))
+        val savedCustomer = customerService.saveCustomer(customer)
+
+        val location = URI.create("$CUSTOMER_ENDPOINT/${savedCustomer.id}")
+        return ResponseEntity.created(location).body(savedCustomer)
     }
 }
