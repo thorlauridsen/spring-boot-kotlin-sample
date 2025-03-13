@@ -19,10 +19,10 @@ class ControllerAdvisor : ResponseEntityExceptionHandler() {
 
     /**
      * Handles all domain exception.
-     * If any [DomainException] is thrown, this method will catch it and return a response entity with an [com.github.sample.dto.ErrorDto].
+     * If any [DomainException] is thrown, this method will catch it and return a response entity with an [ErrorDto].
      * The returned HTTP status code will be derived from the specific [DomainException].
      * @param exception The domain exception to handle.
-     * @return A response entity with an [com.github.sample.dto.ErrorDto]
+     * @return A response entity with an [ErrorDto]
      */
     @ExceptionHandler(value = [DomainException::class])
     fun handleDomainException(exception: DomainException): ResponseEntity<ErrorDto> {
