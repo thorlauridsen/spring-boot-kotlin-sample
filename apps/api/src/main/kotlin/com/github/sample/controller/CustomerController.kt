@@ -1,7 +1,8 @@
 package com.github.sample.controller
 
-import com.github.sample.Customer
-import com.github.sample.CustomerInput
+import com.github.sample.dto.CustomerDto
+import com.github.sample.dto.CustomerInputDto
+import com.github.sample.dto.toDto
 import com.github.sample.service.CustomerService
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
@@ -21,23 +22,27 @@ class CustomerController(private val customerService: CustomerService) : ICustom
 
     /**
      * Retrieve a customer given an id.
+     * Get the customer from the service and convert it to a DTO before returning it.
      * @param id [UUID] of customer.
-     * @return [Customer]
+     * @return [CustomerDto]
      */
-    override fun getCustomer(id: UUID): ResponseEntity<Customer> {
+    override fun getCustomer(id: UUID): ResponseEntity<CustomerDto> {
         val customer = customerService.getCustomer(id)
-        return ResponseEntity.ok(customer)
+        return ResponseEntity.ok(customer.toDto())
     }
 
     /**
      * Save a customer.
-     * @param customer [Customer] to save.
-     * @return Saved [Customer]
+     * Convert the customer to a model before saving it.
+     * Create the location for the newly created customer.
+     * Return location and customer DTO.
+     * @param customer [CustomerInputDto] to save.
+     * @return Saved [CustomerDto]
      */
-    override fun saveCustomer(customer: CustomerInput): ResponseEntity<Customer> {
-        val savedCustomer = customerService.saveCustomer(customer)
+    override fun saveCustomer(customer: CustomerInputDto): ResponseEntity<CustomerDto> {
+        val savedCustomer = customerService.saveCustomer(customer.toModel())
 
         val location = URI.create("$CUSTOMER_ENDPOINT/${savedCustomer.id}")
-        return ResponseEntity.created(location).body(savedCustomer)
+        return ResponseEntity.created(location).body(savedCustomer.toDto())
     }
 }
