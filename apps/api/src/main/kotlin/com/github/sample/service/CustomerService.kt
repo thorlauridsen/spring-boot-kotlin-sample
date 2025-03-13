@@ -3,6 +3,7 @@ package com.github.sample.service
 import com.github.sample.Customer
 import com.github.sample.CustomerInput
 import com.github.sample.CustomerRepo
+import com.github.sample.exception.CustomerNotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.util.UUID
@@ -39,7 +40,7 @@ class CustomerService(private val customerRepo: CustomerRepo) {
         logger.info("Retrieving customer with id: $id")
 
         val customer = customerRepo.getCustomer(id)
-            ?: error("Customer not found with id: $id")
+            ?: throw CustomerNotFoundException(id)
 
         logger.info("Found customer: $customer")
         return customer
