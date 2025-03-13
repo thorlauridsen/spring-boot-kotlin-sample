@@ -5,12 +5,15 @@ plugins {
 }
 
 dependencies {
+	// The api project needs access to both the model and persistence project
 	implementation(projects.model)
 	implementation(projects.persistence)
 
+	// Spring Boot dependencies
 	implementation(local.spring.boot.starter)
 	implementation(local.spring.boot.starter.web)
 
+	// SpringDoc for swagger docs supporting Spring Web MVC
 	implementation(local.springdoc.openapi.starter.webmvc)
 
 	// Liquibase for database migrations
@@ -22,6 +25,7 @@ dependencies {
 	// FasterXML Jackson module for Kotlin support
 	implementation(local.jackson.module.kotlin)
 
+	// Test dependencies
 	testImplementation(local.spring.boot.starter.test)
 	testImplementation(local.kotlin.test.junit5)
 	testRuntimeOnly(local.junit.platform.launcher)

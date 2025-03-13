@@ -5,6 +5,9 @@ plugins {
 }
 
 dependencies {
+    // Persistence project needs to know about the model project
     implementation(projects.model)
+
+    // JetBrains Exposed - Kotlin SQL library
     implementation(local.exposed.spring.boot.starter)
 }
