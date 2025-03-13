@@ -1,8 +1,14 @@
 package com.github.sample.controller
 
-import com.github.sample.Customer
-import com.github.sample.CustomerInput
+import com.github.sample.dto.CustomerDto
+import com.github.sample.dto.CustomerInputDto
+import com.github.sample.dto.ErrorDto
 import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.Parameter
+import io.swagger.v3.oas.annotations.media.Content
+import io.swagger.v3.oas.annotations.media.Schema
+import io.swagger.v3.oas.annotations.responses.ApiResponse
+import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -14,30 +20,47 @@ import java.util.UUID
 
 const val CUSTOMER_ENDPOINT = "/customer"
 
+@Tag(name = "Customer Controller", description = "API for managing customers")
 @RequestMapping(CUSTOMER_ENDPOINT)
 interface ICustomerController {
 
     /**
      * Retrieve a customer given an id.
      * @param id [UUID] of customer.
-     * @return [Customer]
+     * @return [CustomerDto]
      */
     @GetMapping("/{id}")
     @Operation(
         summary = "Retrieve a customer given an id",
         description = "Retrieve a customer given an id"
     )
-    fun getCustomer(@PathVariable id: UUID): ResponseEntity<Customer>
+    @ApiResponse(
+        responseCode = "200",
+        description = "Successfully retrieved customer"
+    )
+    @ApiResponse(
+        responseCode = "404",
+        description = "Customer not found with given id",
+        content = [Content(schema = Schema(implementation = ErrorDto::class))]
+    )
+    fun getCustomer(
+        @Parameter(description = "UUID of the customer to retrieve", required = true)
+        @PathVariable id: UUID
+    ): ResponseEntity<CustomerDto>
 
     /**
      * Save a customer.
-     * @param customer [Customer] to save.
-     * @return Saved [Customer]
+     * @param customer [CustomerInputDto] to save.
+     * @return Saved [CustomerDto]
      */
     @PostMapping
     @Operation(
         summary = "Save a customer",
         description = "Save a customer"
     )
-    fun saveCustomer(@Valid @RequestBody customer: CustomerInput): ResponseEntity<Customer>
+    @ApiResponse(
+        responseCode = "201",
+        description = "Customer successfully created"
+    )
+    fun saveCustomer(@Valid @RequestBody customer: CustomerInputDto): ResponseEntity<CustomerDto>
 }
