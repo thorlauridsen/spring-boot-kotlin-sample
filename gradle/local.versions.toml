@@ -1,6 +1,7 @@
 [versions]
 springbootVersion = "3.4.3"
 springDependencyPluginVersion = "1.1.6"
+springDocsVersion = "2.8.5"
 kotlinVersion = "2.0.21"
 junitPlatformLauncherVersion = "1.12.0"
 
@@ -8,6 +9,9 @@ junitPlatformLauncherVersion = "1.12.0"
 spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springbootVersion" }
 spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springbootVersion" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springbootVersion" }
+
+springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springDocsVersion" }
+
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlinVersion" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncherVersion" }
 
