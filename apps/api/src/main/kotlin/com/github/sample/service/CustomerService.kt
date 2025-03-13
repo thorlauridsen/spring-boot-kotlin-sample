@@ -3,6 +3,7 @@ package com.github.sample.service
 import com.github.sample.Customer
 import com.github.sample.CustomerInput
 import com.github.sample.CustomerRepo
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.util.UUID
 
@@ -16,12 +17,16 @@ import java.util.UUID
 @Service
 class CustomerService(private val customerRepo: CustomerRepo) {
 
+    private val logger = LoggerFactory.getLogger(CustomerService::class.java)
+
     /**
      * Save a customer.
      * @param customer [CustomerInput] to save.
      * @return [Customer] retrieved from database.
      */
     fun saveCustomer(customer: CustomerInput): Customer {
+        logger.info("Saving customer to database: $customer")
+
         return customerRepo.saveCustomer(customer)
     }
 
@@ -31,6 +36,10 @@ class CustomerService(private val customerRepo: CustomerRepo) {
      * @return [Customer] or null if not found.
      */
     fun getCustomer(id: UUID): Customer? {
-        return customerRepo.getCustomer(id)
+        logger.info("Retrieving customer with id: $id")
+        val customer = customerRepo.getCustomer(id)
+
+        logger.info("Found customer: $customer")
+        return customer
     }
 }
