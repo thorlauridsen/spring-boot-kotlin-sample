@@ -35,5 +35,5 @@ interface ICustomerController {
         summary = "Save a customer",
         description = "Save a customer"
     )
-    fun getCustomer(@Valid @RequestBody customer: CustomerInput): ResponseEntity<Customer>
+    fun saveCustomer(@Valid @RequestBody customer: CustomerInput): ResponseEntity<Customer>
 }

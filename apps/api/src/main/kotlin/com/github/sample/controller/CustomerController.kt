@@ -35,7 +35,7 @@ class CustomerController(private val customerService: CustomerService) : ICustom
      * @param customer [Customer] to save.
      * @return Saved [Customer]
      */
-    override fun getCustomer(customer: CustomerInput): ResponseEntity<Customer> {
+    override fun saveCustomer(customer: CustomerInput): ResponseEntity<Customer> {
         return ResponseEntity.ok(customerService.saveCustomer(customer))
     }
 }
