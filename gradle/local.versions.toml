@@ -4,5 +4,5 @@ springDependencyPluginVersion = "1.1.6"
 kotlinVersion = "2.0.21"
 
 [plugins]
-spring-boot = {id = "org.springframework.boot", version.ref = "springbootVersion" }
-spring-dependencies = {id = "io.spring.dependency-management", version.ref = "springDependencyPluginVersion" }
+spring-boot = { id = "org.springframework.boot", version.ref = "springbootVersion" }
+spring-dependencies = { id = "io.spring.dependency-management", version.ref = "springDependencyPluginVersion" }
