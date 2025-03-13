@@ -36,7 +36,7 @@ class CustomerService(private val customerRepo: CustomerRepo) {
      * @param id [UUID] to fetch customer.
      * @return [Customer] or null if not found.
      */
-    fun getCustomer(id: UUID): Customer? {
+    fun getCustomer(id: UUID): Customer {
         logger.info("Retrieving customer with id: $id")
 
         val customer = customerRepo.getCustomer(id)
