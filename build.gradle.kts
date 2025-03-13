@@ -1,8 +1,5 @@
 plugins {
 	kotlin("jvm") version local.versions.kotlinVersion
-	kotlin("plugin.spring") version local.versions.kotlinVersion apply false
-	alias(local.plugins.spring.boot) apply false
-	alias(local.plugins.spring.dependencies) apply false
 }
 
 group = "com.github"
