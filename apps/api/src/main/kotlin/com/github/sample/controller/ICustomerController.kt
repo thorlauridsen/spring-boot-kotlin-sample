@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import java.util.UUID
 
-const val CUSTOMER_ENDPOINT = "/customer"
+const val CUSTOMER_BASE_ENDPOINT = "/customer"
 
 @Tag(name = "Customer Controller", description = "API for managing customers")
-@RequestMapping(CUSTOMER_ENDPOINT)
+@RequestMapping(CUSTOMER_BASE_ENDPOINT)
 interface ICustomerController {
 
     /**
