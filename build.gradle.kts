@@ -1,8 +1,5 @@
 plugins {
 	kotlin("jvm") version local.versions.kotlinVersion
-	kotlin("plugin.spring") version local.versions.kotlinVersion
-	alias(local.plugins.spring.boot)
-	alias(local.plugins.spring.dependencies)
 }
 
 group = "com.github"
@@ -12,13 +9,6 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
-	implementation(local.spring.boot.starter)
-	testImplementation(local.spring.boot.starter.test)
-	testImplementation(local.kotlin.test.junit5)
-	testRuntimeOnly(local.junit.platform.launcher)
-}
-
 kotlin {
 	jvmToolchain(21)
 	compilerOptions {
@@ -26,6 +16,6 @@ kotlin {
 	}
 }
 
-tasks.withType<Test> {
-	useJUnitPlatform()
+subprojects {
+	apply(plugin = "org.jetbrains.kotlin.jvm")
 }
