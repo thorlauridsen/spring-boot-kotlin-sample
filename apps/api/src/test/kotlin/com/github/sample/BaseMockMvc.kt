@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 
 /**
  * This is the BaseMockMvc class which allows you to send and test HTTP requests.
+ * @param mockMvc The MockMvc instance to use for testing.
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
