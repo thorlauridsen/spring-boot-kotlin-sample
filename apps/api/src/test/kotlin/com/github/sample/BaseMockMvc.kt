@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-class BaseMockMvc(val mockMvc: MockMvc) {
+class BaseMockMvc(private val mockMvc: MockMvc) {
 
     /**
      * Mock a HTTP GET request.
