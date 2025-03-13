@@ -37,7 +37,9 @@ class CustomerService(private val customerRepo: CustomerRepo) {
      */
     fun getCustomer(id: UUID): Customer? {
         logger.info("Retrieving customer with id: $id")
+
         val customer = customerRepo.getCustomer(id)
+            ?: error("Customer not found with id: $id")
 
         logger.info("Found customer: $customer")
         return customer
