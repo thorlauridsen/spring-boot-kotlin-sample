@@ -10,6 +10,8 @@ dependencies {
 	implementation(local.spring.boot.starter)
 	implementation(local.spring.boot.starter.web)
 
+	implementation(local.springdoc.openapi.starter.webmvc)
+
 	testImplementation(local.spring.boot.starter.test)
 	testImplementation(local.kotlin.test.junit5)
 	testRuntimeOnly(local.junit.platform.launcher)
