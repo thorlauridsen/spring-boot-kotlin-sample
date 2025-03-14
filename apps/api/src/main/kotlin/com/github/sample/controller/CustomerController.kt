@@ -42,7 +42,7 @@ class CustomerController(private val customerService: CustomerService) : ICustom
     override fun saveCustomer(customer: CustomerInputDto): ResponseEntity<CustomerDto> {
         val savedCustomer = customerService.saveCustomer(customer.toModel())
 
-        val location = URI.create("$CUSTOMER_ENDPOINT/${savedCustomer.id}")
+        val location = URI.create("$CUSTOMER_BASE_ENDPOINT/${savedCustomer.id}")
         return ResponseEntity.created(location).body(savedCustomer.toDto())
     }
 }
