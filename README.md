@@ -71,7 +71,7 @@ This means we can save time building
 
 Gradle build cache is disabled by default so it has been enabled for this 
 project by updating the root [gradle.properties](gradle.properties) file:
-```
+```properties
 org.gradle.caching=true
 ```
 
@@ -91,7 +91,7 @@ file, the build configuration has been affected.
 
 This is not enabled by default, so it is enabled by defining this in 
 the root [gradle.properties](gradle.properties) file:
-```
+```properties
 org.gradle.configuration-cache=true
 org.gradle.configuration-cache.parallel=true
 ```
