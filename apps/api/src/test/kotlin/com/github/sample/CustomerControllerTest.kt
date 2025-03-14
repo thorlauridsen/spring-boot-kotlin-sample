@@ -15,7 +15,7 @@ import kotlin.test.assertNotNull
 
 /**
  * Test class for testing the CustomerController.
- * This class extends the BaseMockMvc class so this will spin up a Spring Boot instance for the tests.
+ * This class extends the [BaseMockMvc] class so this will spin up a Spring Boot instance for the tests.
  * @param mockMvc The MockMvc instance to use for testing.
  */
 class CustomerControllerTest(
