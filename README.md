@@ -46,7 +46,7 @@ We can define versions, libraries, bundles and plugins here.
 This enables us to use Gradle dependencies consistently across the entire project.
 
 Dependencies can then be implemented in a specific **build.gradle.kts** file as such:
-```
+```kotlin
 implementation(local.spring.boot.starter)
 ```
 
@@ -142,12 +142,12 @@ be a third-party integration.
 The subprojects in this repository may use other subprojects as dependencies.
 
 In our root [settings.gradle.kts](settings.gradle.kts) we have added:
-```
+```kotlin
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 ```
 Which allows us to add a subproject as a dependency in another subproject:
 
-```
+```kotlin
 dependencies {
     implementation(projects.model)
 }
