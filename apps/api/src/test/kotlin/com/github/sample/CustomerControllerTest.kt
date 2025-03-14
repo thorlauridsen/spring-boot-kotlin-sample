@@ -6,12 +6,12 @@ import com.github.sample.controller.CUSTOMER_BASE_ENDPOINT
 import com.github.sample.dto.CustomerDto
 import com.github.sample.dto.CustomerInputDto
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.test.web.servlet.MockMvc
 import java.util.UUID
-import kotlin.test.assertNotNull
 
 /**
  * Test class for testing the CustomerController.
