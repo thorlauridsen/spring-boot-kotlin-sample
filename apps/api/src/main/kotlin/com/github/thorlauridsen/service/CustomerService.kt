@@ -28,7 +28,7 @@ class CustomerService(private val customerRepo: CustomerRepo) {
     fun saveCustomer(customer: CustomerInput): Customer {
         logger.info("Saving customer to database: $customer")
 
-        return customerRepo.saveCustomer(customer)
+        return customerRepo.save(customer)
     }
 
     /**
@@ -40,7 +40,7 @@ class CustomerService(private val customerRepo: CustomerRepo) {
     fun getCustomer(id: UUID): Customer {
         logger.info("Retrieving customer with id: $id")
 
-        val customer = customerRepo.getCustomer(id)
+        val customer = customerRepo.find(id)
             ?: throw CustomerNotFoundException(id)
 
         logger.info("Found customer: $customer")

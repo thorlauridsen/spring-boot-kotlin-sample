@@ -25,15 +25,15 @@ class CustomerRepo {
      * @throws IllegalStateException if customer not found in database after saving.
      * @return [Customer] retrieved from database.
      */
-    fun saveCustomer(customer: CustomerInput): Customer {
+    fun save(customer: CustomerInput): Customer {
         return transaction {
-            logger.info("Saving customer to database: $customer")
+            logger.info("Saving customer $customer to database...")
             val id = CustomerTable.insertAndGetId {
                 it[mail] = customer.mail
             }
             logger.info("Saved customer with id $id in database")
 
-            getCustomer(id.value) ?: error("Could not save customer with mail: $customer")
+            find(id.value) ?: error("Could not save customer with mail: $customer")
         }
     }
 
@@ -42,8 +42,8 @@ class CustomerRepo {
      * @param id [UUID] to fetch customer.
      * @return [Customer] or null if not found.
      */
-    fun getCustomer(id: UUID): Customer? {
-        logger.info("Retrieving customer with id: $id from database")
+    fun find(id: UUID): Customer? {
+        logger.info("Retrieving customer with id: $id from database...")
 
         return transaction {
             val customer = CustomerTable
