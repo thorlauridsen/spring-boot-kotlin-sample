@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-	// The api project needs access to both the model and persistence project
+	// The api subproject needs access to both the model and persistence subproject
 	implementation(projects.model)
 	implementation(projects.persistence)
 

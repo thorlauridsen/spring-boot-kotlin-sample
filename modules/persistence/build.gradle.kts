@@ -8,7 +8,7 @@ plugins {
 }
 
 dependencies {
-    // Persistence project needs to know about the model project
+    // Persistence subproject needs to know about the model subproject
     implementation(projects.model)
 
     // JetBrains Exposed - Kotlin SQL library
