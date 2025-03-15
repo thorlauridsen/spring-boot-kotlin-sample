@@ -2,7 +2,7 @@ import org.springframework.boot.gradle.tasks.bundling.BootJar
 import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
-    kotlin("plugin.spring") version local.versions.kotlinVersion
+    kotlin("plugin.spring") version local.versions.kotlin
     alias(local.plugins.spring.boot)
     alias(local.plugins.spring.dependencies)
 }

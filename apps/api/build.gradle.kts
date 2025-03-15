@@ -1,5 +1,5 @@
 plugins {
-	kotlin("plugin.spring") version local.versions.kotlinVersion
+	kotlin("plugin.spring") version local.versions.kotlin
 	alias(local.plugins.spring.boot)
 	alias(local.plugins.spring.dependencies)
 }
