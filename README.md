@@ -2,6 +2,8 @@
 
 This is a sample project for how you can set up a 
 multi-project Gradle build using Spring Boot and Kotlin.
+You can copy or fork this project to quickly set up a 
+new project with the same multi-project Gradle structure.
 
 This project consists of a runnable REST API using Spring Boot Web MVC.
 
