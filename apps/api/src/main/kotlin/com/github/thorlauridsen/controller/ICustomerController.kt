@@ -1,8 +1,8 @@
-package com.github.sample.controller
+package com.github.thorlauridsen.controller
 
-import com.github.sample.dto.CustomerDto
-import com.github.sample.dto.CustomerInputDto
-import com.github.sample.dto.ErrorDto
+import com.github.thorlauridsen.dto.CustomerDto
+import com.github.thorlauridsen.dto.CustomerInputDto
+import com.github.thorlauridsen.dto.ErrorDto
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.media.Content

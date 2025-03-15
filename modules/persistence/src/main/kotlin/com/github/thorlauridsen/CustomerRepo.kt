@@ -1,4 +1,4 @@
-package com.github.sample
+package com.github.thorlauridsen
 
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insertAndGetId

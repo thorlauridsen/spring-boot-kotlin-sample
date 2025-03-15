@@ -1,9 +1,9 @@
-package com.github.sample.controller
+package com.github.thorlauridsen.controller
 
-import com.github.sample.dto.CustomerDto
-import com.github.sample.dto.CustomerInputDto
-import com.github.sample.dto.toDto
-import com.github.sample.service.CustomerService
+import com.github.thorlauridsen.dto.CustomerDto
+import com.github.thorlauridsen.dto.CustomerInputDto
+import com.github.thorlauridsen.dto.toDto
+import com.github.thorlauridsen.service.CustomerService
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import java.net.URI

@@ -1,4 +1,4 @@
-package com.github.sample
+package com.github.thorlauridsen
 
 /**
  * Model data class used to create a new customer.

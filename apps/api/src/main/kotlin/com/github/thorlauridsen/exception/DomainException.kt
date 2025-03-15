@@ -1,4 +1,4 @@
-package com.github.sample.exception
+package com.github.thorlauridsen.exception
 
 import org.springframework.http.HttpStatus
 import java.util.UUID

@@ -1,6 +1,6 @@
-package com.github.sample.exception
+package com.github.thorlauridsen.exception
 
-import com.github.sample.dto.ErrorDto
+import com.github.thorlauridsen.dto.ErrorDto
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

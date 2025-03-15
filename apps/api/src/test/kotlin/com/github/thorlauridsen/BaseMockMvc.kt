@@ -1,4 +1,4 @@
-package com.github.sample
+package com.github.thorlauridsen
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest

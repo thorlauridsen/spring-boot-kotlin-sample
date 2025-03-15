@@ -1,10 +1,10 @@
-package com.github.sample
+package com.github.thorlauridsen
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.github.sample.controller.CUSTOMER_BASE_ENDPOINT
-import com.github.sample.dto.CustomerDto
-import com.github.sample.dto.CustomerInputDto
+import com.github.thorlauridsen.controller.CUSTOMER_BASE_ENDPOINT
+import com.github.thorlauridsen.dto.CustomerDto
+import com.github.thorlauridsen.dto.CustomerInputDto
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test

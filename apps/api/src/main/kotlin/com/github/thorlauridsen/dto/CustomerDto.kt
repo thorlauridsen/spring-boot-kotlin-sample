@@ -1,6 +1,6 @@
-package com.github.sample.dto
+package com.github.thorlauridsen.dto
 
-import com.github.sample.Customer
+import com.github.thorlauridsen.Customer
 import io.swagger.v3.oas.annotations.media.Schema
 import java.util.UUID
 

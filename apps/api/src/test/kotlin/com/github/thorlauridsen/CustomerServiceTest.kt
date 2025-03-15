@@ -1,7 +1,7 @@
-package com.github.sample
+package com.github.thorlauridsen
 
-import com.github.sample.exception.CustomerNotFoundException
-import com.github.sample.service.CustomerService
+import com.github.thorlauridsen.exception.CustomerNotFoundException
+import com.github.thorlauridsen.service.CustomerService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test

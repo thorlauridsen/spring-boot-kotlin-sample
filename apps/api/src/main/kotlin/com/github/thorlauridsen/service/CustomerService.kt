@@ -1,9 +1,9 @@
-package com.github.sample.service
+package com.github.thorlauridsen.service
 
-import com.github.sample.Customer
-import com.github.sample.CustomerInput
-import com.github.sample.CustomerRepo
-import com.github.sample.exception.CustomerNotFoundException
+import com.github.thorlauridsen.Customer
+import com.github.thorlauridsen.CustomerInput
+import com.github.thorlauridsen.CustomerRepo
+import com.github.thorlauridsen.exception.CustomerNotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.util.UUID
