@@ -25,7 +25,7 @@ class CustomerService(private val customerRepo: CustomerRepo) {
      * @param customer [CustomerInput] to save.
      * @return [Customer] retrieved from database.
      */
-    fun saveCustomer(customer: CustomerInput): Customer {
+    fun save(customer: CustomerInput): Customer {
         logger.info("Saving customer to database: $customer")
 
         return customerRepo.save(customer)
@@ -37,7 +37,7 @@ class CustomerService(private val customerRepo: CustomerRepo) {
      * @throws CustomerNotFoundException if no customer found with given id.
      * @return [Customer] or null if not found.
      */
-    fun getCustomer(id: UUID): Customer {
+    fun find(id: UUID): Customer {
         logger.info("Retrieving customer with id: $id")
 
         val customer = customerRepo.find(id)

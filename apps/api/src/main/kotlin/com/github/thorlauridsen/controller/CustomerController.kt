@@ -27,7 +27,7 @@ class CustomerController(private val customerService: CustomerService) : ICustom
      * @return [CustomerDto]
      */
     override fun getCustomer(id: UUID): ResponseEntity<CustomerDto> {
-        val customer = customerService.getCustomer(id)
+        val customer = customerService.find(id)
         return ResponseEntity.ok(customer.toDto())
     }
 
@@ -40,7 +40,7 @@ class CustomerController(private val customerService: CustomerService) : ICustom
      * @return Saved [CustomerDto]
      */
     override fun saveCustomer(customer: CustomerInputDto): ResponseEntity<CustomerDto> {
-        val savedCustomer = customerService.saveCustomer(customer.toModel())
+        val savedCustomer = customerService.save(customer.toModel())
 
         val location = URI.create("$CUSTOMER_BASE_ENDPOINT/${savedCustomer.id}")
         return ResponseEntity.created(location).body(savedCustomer.toDto())

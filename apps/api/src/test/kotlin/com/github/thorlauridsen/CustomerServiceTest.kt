@@ -25,7 +25,7 @@ class CustomerServiceTest(
     fun `get customer - random id - returns not found`() {
         val id = UUID.randomUUID()
         assertThrows<CustomerNotFoundException> {
-            customerService.getCustomer(id)
+            customerService.find(id)
         }
     }
 
@@ -33,10 +33,10 @@ class CustomerServiceTest(
     fun `save customer - get customer - success`() {
         val customer = CustomerInput(mail = "bob@gmail.com")
 
-        val savedCustomer = customerService.saveCustomer(customer)
+        val savedCustomer = customerService.save(customer)
         assertCustomer(savedCustomer, "bob@gmail.com")
 
-        val fetchedCustomer = customerService.getCustomer(savedCustomer.id)
+        val fetchedCustomer = customerService.find(savedCustomer.id)
         assertCustomer(fetchedCustomer, "bob@gmail.com")
     }
 
