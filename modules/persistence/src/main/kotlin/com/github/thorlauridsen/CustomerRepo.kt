@@ -49,7 +49,7 @@ class CustomerRepo {
             val customer = CustomerTable
                 .selectAll()
                 .where { CustomerTable.id eq id }
-                .map { mapToCustomer(it) }
+                .map { mapToModel(it) }
                 .firstOrNull()
 
             logger.info("Found customer $customer in database")
@@ -62,7 +62,7 @@ class CustomerRepo {
      * @param row [ResultRow]
      * @return [Customer]
      */
-    private fun mapToCustomer(row: ResultRow): Customer {
+    private fun mapToModel(row: ResultRow): Customer {
         return Customer(
             id = row[CustomerTable.id].value,
             mail = row[CustomerTable.mail],
