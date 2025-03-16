@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 class BaseMockMvc(private val mockMvc: MockMvc) {
 
     /**
-     * Mock a HTTP GET request.
+     * Mock an HTTP GET request.
      * @param getUrl The URL to send an HTTP GET request to.
      * @return [MockHttpServletResponse] response.
      */
@@ -30,7 +30,7 @@ class BaseMockMvc(private val mockMvc: MockMvc) {
     }
 
     /**
-     * Mock a HTTP POST request.
+     * Mock an HTTP POST request.
      * @param jsonBody JSON body as a string.
      * @param postUrl The URL to send an HTTP POST request to.
      * @return [MockHttpServletResponse] response.
