@@ -10,7 +10,7 @@ This project consists of a runnable REST API using Spring Boot Web MVC.
 ## Usage
 Clone the project to your local machine, go to the root directory and use:
 ```
-./gradlew bootRun
+./gradlew api:bootRun
 ```
 
 ### Swagger Documentation
