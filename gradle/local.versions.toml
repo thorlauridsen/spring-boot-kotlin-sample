@@ -7,7 +7,7 @@ kotlin = "2.1.10"
 liquibase = "4.31.1"
 springboot = "3.4.3"
 springDependencyPlugin = "1.1.6"
-springDocs = "2.8.5"
+springdoc = "2.8.5"
 
 [libraries]
 
@@ -17,7 +17,7 @@ springboot-starter-web = { module = "org.springframework.boot:spring-boot-starte
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 
 # SpringDoc provides swagger docs with support for Spring Web MVC
-springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springDocs" }
+springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
 
 # JetBrains Exposed provides a lightweight Kotlin SQL library
 exposed-springboot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed" }
