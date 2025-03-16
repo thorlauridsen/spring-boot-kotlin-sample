@@ -1,7 +1,9 @@
 # Spring Boot Kotlin sample project
 
 This is a sample project for how you can set up a 
-multi-project Gradle build using Spring Boot and Kotlin.
+[multi-project Gradle build](https://docs.gradle.org/current/userguide/multi_project_builds.html) 
+using [Spring Boot](https://github.com/spring-projects/spring-boot) 
+and [Kotlin](https://github.com/JetBrains/kotlin).
 You can copy or fork this project to quickly set up a 
 new project with the same multi-project Gradle structure.
 
