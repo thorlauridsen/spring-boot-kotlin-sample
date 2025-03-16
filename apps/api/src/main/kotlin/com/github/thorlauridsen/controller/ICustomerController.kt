@@ -43,7 +43,7 @@ interface ICustomerController {
         description = "Customer not found with given id",
         content = [Content(schema = Schema(implementation = ErrorDto::class))]
     )
-    fun getCustomer(
+    fun get(
         @Parameter(description = "UUID of the customer to retrieve", required = true)
         @PathVariable id: UUID
     ): ResponseEntity<CustomerDto>
@@ -62,5 +62,5 @@ interface ICustomerController {
         responseCode = "201",
         description = "Customer successfully created"
     )
-    fun saveCustomer(@Valid @RequestBody customer: CustomerInputDto): ResponseEntity<CustomerDto>
+    fun post(@Valid @RequestBody customer: CustomerInputDto): ResponseEntity<CustomerDto>
 }

@@ -26,7 +26,7 @@ class CustomerController(private val customerService: CustomerService) : ICustom
      * @param id [UUID] of customer.
      * @return [CustomerDto]
      */
-    override fun getCustomer(id: UUID): ResponseEntity<CustomerDto> {
+    override fun get(id: UUID): ResponseEntity<CustomerDto> {
         val customer = customerService.find(id)
         return ResponseEntity.ok(customer.toDto())
     }
@@ -39,7 +39,7 @@ class CustomerController(private val customerService: CustomerService) : ICustom
      * @param customer [CustomerInputDto] to save.
      * @return Saved [CustomerDto]
      */
-    override fun saveCustomer(customer: CustomerInputDto): ResponseEntity<CustomerDto> {
+    override fun post(customer: CustomerInputDto): ResponseEntity<CustomerDto> {
         val savedCustomer = customerService.save(customer.toModel())
 
         val location = URI.create("$CUSTOMER_BASE_ENDPOINT/${savedCustomer.id}")
