@@ -12,15 +12,15 @@ springDocs = "2.8.5"
 [libraries]
 
 # Spring Boot libraries
-spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
-spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
-spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
+springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
+springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
+springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 
 # SpringDoc provides swagger docs with support for Spring Web MVC
 springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springDocs" }
 
 # JetBrains Exposed provides a lightweight Kotlin SQL library
-exposed-spring-boot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed" }
+exposed-springboot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed" }
 
 # H2 for in-memory database
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
@@ -36,5 +36,5 @@ kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", versi
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
 
 [plugins]
-spring-boot = { id = "org.springframework.boot", version.ref = "springboot" }
+springboot = { id = "org.springframework.boot", version.ref = "springboot" }
 spring-dependencies = { id = "io.spring.dependency-management", version.ref = "springDependencyPlugin" }

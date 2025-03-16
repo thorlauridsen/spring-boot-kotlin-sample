@@ -3,7 +3,7 @@ import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
     kotlin("plugin.spring") version local.versions.kotlin
-    alias(local.plugins.spring.boot)
+    alias(local.plugins.springboot)
     alias(local.plugins.spring.dependencies)
 }
 
@@ -12,7 +12,7 @@ dependencies {
     implementation(projects.model)
 
     // JetBrains Exposed - Kotlin SQL library
-    implementation(local.exposed.spring.boot.starter)
+    implementation(local.exposed.springboot.starter)
 }
 
 // Disabling bootJar and bootRun is necessary for a subproject/module

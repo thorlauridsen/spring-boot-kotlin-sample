@@ -1,6 +1,6 @@
 plugins {
 	kotlin("plugin.spring") version local.versions.kotlin
-	alias(local.plugins.spring.boot)
+	alias(local.plugins.springboot)
 	alias(local.plugins.spring.dependencies)
 }
 
@@ -10,8 +10,8 @@ dependencies {
 	implementation(projects.persistence)
 
 	// Spring Boot dependencies
-	implementation(local.spring.boot.starter)
-	implementation(local.spring.boot.starter.web)
+	implementation(local.springboot.starter)
+	implementation(local.springboot.starter.web)
 
 	// SpringDoc for swagger docs supporting Spring Web MVC
 	implementation(local.springdoc.openapi.starter.webmvc)
@@ -26,7 +26,7 @@ dependencies {
 	implementation(local.jackson.module.kotlin)
 
 	// Test dependencies
-	testImplementation(local.spring.boot.starter.test)
+	testImplementation(local.springboot.starter.test)
 	testImplementation(local.kotlin.test.junit5)
 	testRuntimeOnly(local.junit.platform.launcher)
 }
