@@ -1,0 +1,19 @@
+name: Gradle Build
+
+on:
+  push:
+    branches:
+      - main # Runs on pushes to main branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build with Gradle
+        uses: gradle/actions@v4.3.0
