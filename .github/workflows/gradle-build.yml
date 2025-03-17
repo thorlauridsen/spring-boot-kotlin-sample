@@ -6,7 +6,7 @@ on:
       - main # Runs on pushes to main branch
   pull_request:
     branches:
-      - main
+      - main # Runs on pull requests for merging into main
 
 jobs:
   build:
