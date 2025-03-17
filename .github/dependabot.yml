@@ -7,12 +7,6 @@ updates:
     schedule:
       interval: "weekly"
     commit-message:
-      prefix: "build"
-      include: "scope"
+      prefix: "build: "
     pull-request-branch-name:
       separator: "-"
-    pull-request-title-pattern: "build: Update ${dependency-name} from ${version-from} to ${version-to}"
-    versioning-strategy: "auto"
-    registries:
-      - maven-central
-      - gradle-plugin-portal
