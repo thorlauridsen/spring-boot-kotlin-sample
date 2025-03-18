@@ -13,7 +13,7 @@ dependencies {
 	implementation(local.springboot.starter)
 	implementation(local.springboot.starter.web)
 
-	// SpringDoc for swagger docs supporting Spring Web MVC
+	// Springdoc for swagger docs supporting Spring Web MVC
 	implementation(local.springdoc.openapi.starter.webmvc)
 
 	// Liquibase for database migrations

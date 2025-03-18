@@ -16,7 +16,7 @@ springboot-starter = { module = "org.springframework.boot:spring-boot-starter", 
 springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 
-# SpringDoc provides swagger docs with support for Spring Web MVC
+# Springdoc provides swagger docs with support for Spring Web MVC
 springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
 
 # JetBrains Exposed provides a lightweight Kotlin SQL library
