@@ -9,6 +9,8 @@ import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import java.util.UUID
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
 /**
  * Test class for testing the [CustomerService].
@@ -29,15 +31,21 @@ class CustomerServiceTest(
         }
     }
 
-    @Test
-    fun `save customer - get customer - success`() {
-        val customer = CustomerInput(mail = "bob@gmail.com")
+    @ParameterizedTest
+    @ValueSource(
+        strings = [
+            "alice@gmail.com",
+            "bob@gmail.com",
+        ]
+    )
+    fun `save customer - get customer - success`(mail: String) {
+        val customer = CustomerInput(mail)
 
         val savedCustomer = customerService.save(customer)
-        assertCustomer(savedCustomer, "bob@gmail.com")
+        assertCustomer(savedCustomer, mail)
 
         val fetchedCustomer = customerService.find(savedCustomer.id)
-        assertCustomer(fetchedCustomer, "bob@gmail.com")
+        assertCustomer(fetchedCustomer, mail)
     }
 
     /**

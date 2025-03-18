@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.test.web.servlet.MockMvc
 import java.util.UUID
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
 /**
  * Test class for testing the CustomerController.
@@ -31,23 +33,29 @@ class CustomerControllerTest(
         assertEquals(HttpStatus.NOT_FOUND.value(), response.status)
     }
 
-    @Test
-    fun `post customer - get customer - success`() {
-        val customer = CustomerInputDto(mail = "bob@gmail.com")
+    @ParameterizedTest
+    @ValueSource(
+        strings = [
+            "alice@gmail.com",
+            "bob@gmail.com",
+        ]
+    )
+    fun `post customer - get customer - success`(mail: String) {
+        val customer = CustomerInputDto(mail)
         val json = objectMapper.writeValueAsString(customer)
         val response = mockPost(json, CUSTOMER_BASE_ENDPOINT)
         assertEquals(HttpStatus.CREATED.value(), response.status)
 
         val responseJson = response.contentAsString
         val createdCustomer = objectMapper.readValue(responseJson, CustomerDto::class.java)
-        assertCustomer(createdCustomer, "bob@gmail.com")
+        assertCustomer(createdCustomer, mail)
 
         val response2 = mockGet("$CUSTOMER_BASE_ENDPOINT/${createdCustomer.id}")
         assertEquals(HttpStatus.OK.value(), response2.status)
 
         val responseJson2 = response2.contentAsString
         val fetchedCustomer = objectMapper.readValue(responseJson2, CustomerDto::class.java)
-        assertCustomer(fetchedCustomer, "bob@gmail.com")
+        assertCustomer(fetchedCustomer, mail)
     }
 
     /**
