@@ -10,3 +10,5 @@ updates:
       prefix: "build: "
     pull-request-branch-name:
       separator: "-"
+    ignore:
+      - dependency-name: "org.apache.commons:commons-compress"
