@@ -17,7 +17,7 @@ import org.junit.jupiter.params.provider.ValueSource
 /**
  * Test class for testing the [CustomerService].
  * This class uses the @SpringBootTest annotation to spin up a Spring Boot instance.
- * This ensures that Spring can automatically inject [CustomerService] with a [com.github.thorlauridsen.persistence.CustomerRepo]
+ * This ensures that Spring can automatically inject [CustomerService] with a CustomerRepo
  * @param customerService The [CustomerService] to test.
  */
 @SpringBootTest
