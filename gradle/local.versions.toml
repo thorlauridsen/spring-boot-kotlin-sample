@@ -1,11 +1,11 @@
 [versions]
-exposed = "0.59.0"
+exposed = "0.60.0"
 h2database = "2.3.232"
 jackson = "2.18.3"
 junitPlatformLauncher = "1.12.1"
 kotlin = "2.1.20"
 liquibase = "4.31.1"
-springboot = "3.4.3"
+springboot = "3.4.4"
 springDependencyPlugin = "1.1.7"
 springdoc = "2.8.5"
 

@@ -17,7 +17,7 @@ import java.util.UUID
 @Repository
 class CustomerRepo {
 
-    private val logger = LoggerFactory.getLogger(CustomerRepo::class.java)
+    private val logger = LoggerFactory.getLogger(this::class.java)
 
     /**
      * Save a customer to the database.
