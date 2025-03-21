@@ -18,7 +18,7 @@ import java.util.UUID
 @Service
 class CustomerService(private val customerRepo: CustomerRepo) {
 
-    private val logger = LoggerFactory.getLogger(CustomerService::class.java)
+    private val logger = LoggerFactory.getLogger(this::class.java)
 
     /**
      * Save a customer.

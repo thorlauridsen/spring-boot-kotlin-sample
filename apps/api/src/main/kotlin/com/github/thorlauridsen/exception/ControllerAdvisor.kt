@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 class ControllerAdvisor : ResponseEntityExceptionHandler() {
 
-    private val logger = LoggerFactory.getLogger(ControllerAdvisor::class.java)
+    private val logger = LoggerFactory.getLogger(this::class.java)
 
     /**
      * Handles all domain exception.
