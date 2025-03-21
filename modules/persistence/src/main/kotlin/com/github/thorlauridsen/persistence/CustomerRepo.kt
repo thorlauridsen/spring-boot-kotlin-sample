@@ -1,5 +1,7 @@
-package com.github.thorlauridsen
+package com.github.thorlauridsen.persistence
 
+import com.github.thorlauridsen.model.Customer
+import com.github.thorlauridsen.model.CustomerInput
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.insertAndGetId
 import org.jetbrains.exposed.sql.selectAll

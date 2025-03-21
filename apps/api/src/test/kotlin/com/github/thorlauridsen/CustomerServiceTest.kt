@@ -1,5 +1,7 @@
 package com.github.thorlauridsen
 
+import com.github.thorlauridsen.model.Customer
+import com.github.thorlauridsen.model.CustomerInput
 import com.github.thorlauridsen.exception.CustomerNotFoundException
 import com.github.thorlauridsen.service.CustomerService
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -15,7 +17,7 @@ import org.junit.jupiter.params.provider.ValueSource
 /**
  * Test class for testing the [CustomerService].
  * This class uses the @SpringBootTest annotation to spin up a Spring Boot instance.
- * This ensures that Spring can automatically inject [CustomerService] with a [CustomerRepo]
+ * This ensures that Spring can automatically inject [CustomerService] with a [com.github.thorlauridsen.persistence.CustomerRepo]
  * @param customerService The [CustomerService] to test.
  */
 @SpringBootTest

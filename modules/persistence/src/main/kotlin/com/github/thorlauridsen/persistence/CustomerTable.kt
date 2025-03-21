@@ -1,4 +1,4 @@
-package com.github.thorlauridsen
+package com.github.thorlauridsen.persistence
 
 import org.jetbrains.exposed.dao.id.UUIDTable
 
