@@ -17,10 +17,10 @@ dependencies {
 	implementation(local.springdoc.openapi.starter.webmvc)
 
 	// Liquibase for database migrations
-	implementation(local.liquibase.core)
+	runtimeOnly(local.liquibase.core)
 
 	// H2 in-memory database
-	implementation(local.h2database)
+	runtimeOnly(local.h2database)
 
 	// FasterXML Jackson module for Kotlin support
 	implementation(local.jackson.module.kotlin)
