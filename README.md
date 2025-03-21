@@ -23,7 +23,7 @@ to view the Swagger documentation.
 - [JDK21](https://openjdk.org/projects/jdk/21/) - Latest JDK with long-term support 
 - [Kotlin](https://github.com/JetBrains/kotlin) - Programming language with Java interoperability
 - [Gradle](https://github.com/gradle/gradle) - Used for compilation, building, testing and dependency management
-- [Spring Boot (Web MVC)](https://github.com/spring-projects/spring-boot) - For creating REST APIs
+- [Spring Boot Web MVC](https://github.com/spring-projects/spring-boot) - For creating REST APIs
 - [Jackson](https://github.com/FasterXML/jackson-module-kotlin) - Provides a Kotlin module for automatic JSON serialization and deserialization
 - [Springdoc](https://github.com/springdoc/springdoc-openapi) - Provides Swagger documentation for REST APIs
 - [Exposed](https://github.com/JetBrains/Exposed) - Lightweight Kotlin SQL library to interact with a database
