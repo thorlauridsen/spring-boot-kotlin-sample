@@ -2,8 +2,9 @@
 
 This is a sample project for how you can set up a 
 [multi-project Gradle build](https://docs.gradle.org/current/userguide/multi_project_builds.html) 
-using [Spring Boot](https://github.com/spring-projects/spring-boot) 
-and [Kotlin](https://github.com/JetBrains/kotlin).
+using [Spring Boot](https://github.com/spring-projects/spring-boot),
+[Kotlin](https://github.com/JetBrains/kotlin)
+and [Exposed](https://github.com/JetBrains/Exposed).
 You can copy or fork this project to quickly set up a 
 new project with the same multi-project Gradle structure.
 
