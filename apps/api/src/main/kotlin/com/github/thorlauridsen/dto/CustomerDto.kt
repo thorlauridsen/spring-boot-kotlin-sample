@@ -1,6 +1,6 @@
 package com.github.thorlauridsen.dto
 
-import com.github.thorlauridsen.Customer
+import com.github.thorlauridsen.model.Customer
 import io.swagger.v3.oas.annotations.media.Schema
 import java.util.UUID
 

@@ -1,8 +1,8 @@
 package com.github.thorlauridsen.service
 
-import com.github.thorlauridsen.Customer
-import com.github.thorlauridsen.CustomerInput
-import com.github.thorlauridsen.CustomerRepo
+import com.github.thorlauridsen.model.Customer
+import com.github.thorlauridsen.model.CustomerInput
+import com.github.thorlauridsen.persistence.CustomerRepo
 import com.github.thorlauridsen.exception.CustomerNotFoundException
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service

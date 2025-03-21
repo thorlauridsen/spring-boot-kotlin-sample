@@ -1,6 +1,6 @@
 package com.github.thorlauridsen.dto
 
-import com.github.thorlauridsen.CustomerInput
+import com.github.thorlauridsen.model.CustomerInput
 import io.swagger.v3.oas.annotations.media.Schema
 
 /**
