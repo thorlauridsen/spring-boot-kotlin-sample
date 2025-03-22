@@ -22,6 +22,9 @@ dependencies {
 	// H2 in-memory database
 	runtimeOnly(local.h2database)
 
+	// PostgreSQL database driver
+	runtimeOnly(local.postgres)
+
 	// FasterXML Jackson module for Kotlin support
 	implementation(local.jackson.module.kotlin)
 
