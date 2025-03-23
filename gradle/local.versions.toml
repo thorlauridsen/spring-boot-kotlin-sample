@@ -8,7 +8,7 @@ liquibase = "4.31.1"
 postgres = "42.7.5"
 springboot = "3.4.4"
 springDependencyPlugin = "1.1.7"
-springdoc = "2.8.5"
+springdoc = "2.8.6"
 
 [libraries]
 # JetBrains Exposed provides a lightweight Kotlin SQL library
