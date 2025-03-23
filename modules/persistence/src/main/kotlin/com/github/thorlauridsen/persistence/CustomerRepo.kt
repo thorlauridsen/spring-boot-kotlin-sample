@@ -17,7 +17,7 @@ import java.util.UUID
  * - Fetching customers from the database.
  */
 @Repository
-class CustomerRepo {
+class CustomerRepo : ICustomerRepo {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -27,7 +27,7 @@ class CustomerRepo {
      * @throws IllegalStateException if customer not found in database after saving.
      * @return [Customer] retrieved from database.
      */
-    fun save(customer: CustomerInput): Customer {
+    override fun save(customer: CustomerInput): Customer {
         return transaction {
             logger.info("Saving customer $customer to database...")
             val id = CustomerTable.insertAndGetId {
@@ -44,7 +44,7 @@ class CustomerRepo {
      * @param id [UUID] to fetch customer.
      * @return [Customer] or null if not found.
      */
-    fun find(id: UUID): Customer? {
+    override fun find(id: UUID): Customer? {
         logger.info("Retrieving customer with id: $id from database...")
 
         return transaction {

@@ -2,8 +2,8 @@ package com.github.thorlauridsen.service
 
 import com.github.thorlauridsen.model.Customer
 import com.github.thorlauridsen.model.CustomerInput
-import com.github.thorlauridsen.persistence.CustomerRepo
 import com.github.thorlauridsen.exception.CustomerNotFoundException
+import com.github.thorlauridsen.persistence.ICustomerRepo
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.util.UUID
@@ -13,10 +13,10 @@ import java.util.UUID
  * - Saving customers.
  * - Fetching customers.
  *
- * @param customerRepo Exposed [CustomerRepo] to interact with the database.
+ * @param customerRepo Exposed [ICustomerRepo] to interact with the database.
  */
 @Service
-class CustomerService(private val customerRepo: CustomerRepo) {
+class CustomerService(private val customerRepo: ICustomerRepo) {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
