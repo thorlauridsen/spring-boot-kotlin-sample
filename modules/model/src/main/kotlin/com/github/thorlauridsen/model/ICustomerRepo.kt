@@ -1,7 +1,5 @@
-package com.github.thorlauridsen.persistence
+package com.github.thorlauridsen.model
 
-import com.github.thorlauridsen.model.Customer
-import com.github.thorlauridsen.model.CustomerInput
 import java.util.UUID
 
 /**
