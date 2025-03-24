@@ -35,7 +35,7 @@ class CustomerService(private val customerRepo: ICustomerRepo) {
      * Get a customer given an id.
      * @param id [UUID] to fetch customer.
      * @throws CustomerNotFoundException if no customer found with given id.
-     * @return [Customer] or null if not found.
+     * @return [Customer] retrieved from database.
      */
     fun find(id: UUID): Customer {
         logger.info("Retrieving customer with id: $id")
