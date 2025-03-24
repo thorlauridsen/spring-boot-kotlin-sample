@@ -10,10 +10,13 @@ import java.net.URI
 import java.util.UUID
 
 /**
- * REST controller for customers.
- * This controller consists of endpoints for:
+ * This REST controller consists of endpoints for:
  * - Saving customers.
  * - Fetching customers.
+ *
+ * This class implements the [ICustomerController] interface and
+ * overrides the methods defined in the interface with implementations.
+ * The controller is responsible for converting data transfer objects to models and vice versa.
  *
  * @param customerService [CustomerService] service layer.
  */

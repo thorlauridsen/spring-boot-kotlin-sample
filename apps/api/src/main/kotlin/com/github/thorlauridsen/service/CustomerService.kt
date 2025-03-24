@@ -13,7 +13,7 @@ import java.util.UUID
  * - Saving customers.
  * - Fetching customers.
  *
- * @param customerRepo Exposed [ICustomerRepo] to interact with the database.
+ * @param customerRepo [ICustomerRepo] to interact with the database.
  */
 @Service
 class CustomerService(private val customerRepo: ICustomerRepo) {

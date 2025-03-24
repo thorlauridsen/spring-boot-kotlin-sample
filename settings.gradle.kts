@@ -20,7 +20,7 @@ pluginManagement {
 }
 
 /**
- * Includes all subprojects within the given directory.
+ * Include all subprojects within the given directory.
  * This function scans the given directory for subdirectories containing a build.gradle.kts file.
  * @param directory The relative path (from the root project) of the directory containing subprojects.
  */

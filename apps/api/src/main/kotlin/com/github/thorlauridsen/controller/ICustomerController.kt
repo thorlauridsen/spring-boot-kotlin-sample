@@ -20,6 +20,12 @@ import java.util.UUID
 
 const val CUSTOMER_BASE_ENDPOINT = "/customers"
 
+/**
+ * Customer controller interface.
+ * This interface defines the endpoints for the customer controller.
+ * It also defines the operations which will be used in the OpenAPI documentation.
+ * The purpose with this interface is to separate the controller definition from the implementation.
+ */
 @Tag(name = "Customer Controller", description = "API for managing customers")
 @RequestMapping(CUSTOMER_BASE_ENDPOINT)
 interface ICustomerController {
