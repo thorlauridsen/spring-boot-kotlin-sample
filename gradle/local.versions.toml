@@ -17,7 +17,7 @@ exposed-springboot-starter = { module = "org.jetbrains.exposed:exposed-spring-bo
 # H2 for an in-memory database
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
 
-# FasterXML Jackson module for Kotlin support
+# FasterXML Jackson kotlin module and support for Java 8 date/time
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
 
@@ -33,9 +33,9 @@ postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 
 # Spring Boot libraries
 springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
-springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
-springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springboot" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
+springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springboot" }
+springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
 
 # Springdoc provides swagger docs with support for Spring Web MVC
 springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
