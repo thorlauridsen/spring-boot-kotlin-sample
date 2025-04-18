@@ -1,7 +1,7 @@
 package com.github.thorlauridsen
 
 import com.github.thorlauridsen.model.CustomerInput
-import com.github.thorlauridsen.persistence.CustomerRepo
+import com.github.thorlauridsen.model.ICustomerRepo
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertNull
@@ -11,13 +11,13 @@ import org.springframework.boot.test.context.SpringBootTest
 import java.util.UUID
 
 /**
- * Test class for testing the [CustomerRepo].
+ * Test class for testing the [ICustomerRepo].
  * This class uses the @SpringBootTest annotation to spin up a Spring Boot instance.
- * @param customerRepo The [CustomerRepo] to test.
+ * @param customerRepo The [ICustomerRepo] to test.
  */
 @SpringBootTest
 class CustomerRepoTest(
-    @Autowired private val customerRepo: CustomerRepo,
+    @Autowired private val customerRepo: ICustomerRepo,
 ) {
 
     @Test
