@@ -18,8 +18,8 @@ exposed-springboot-starter = { module = "org.jetbrains.exposed:exposed-spring-bo
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
 
 # FasterXML Jackson kotlin module and support for Java 8 date/time
-jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
 # Test libraries
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
