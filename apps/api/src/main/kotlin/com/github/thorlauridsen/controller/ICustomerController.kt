@@ -26,19 +26,22 @@ const val CUSTOMER_BASE_ENDPOINT = "/customers"
  * It also defines the operations which will be used in the OpenAPI documentation.
  * The purpose with this interface is to separate the controller definition from the implementation.
  */
-@Tag(name = "Customer Controller", description = "API for managing customers")
+@Tag(
+    name = "Customer Controller", 
+    description = "API for creating and retrieving customer information"
+)
 @RequestMapping(CUSTOMER_BASE_ENDPOINT)
 interface ICustomerController {
 
     /**
-     * Retrieve a customer given an id.
+     * Retrieve a customer by id.
      * @param id [UUID] of customer.
      * @return [CustomerDto]
      */
     @GetMapping("/{id}")
     @Operation(
-        summary = "Retrieve a customer given an id",
-        description = "Retrieve a customer given an id"
+        summary = "Retrieve a customer by ID",
+        description = "Retrieve a customer by ID"
     )
     @ApiResponse(
         responseCode = "200",
@@ -61,8 +64,8 @@ interface ICustomerController {
      */
     @PostMapping
     @Operation(
-        summary = "Save a customer",
-        description = "Save a customer"
+        summary = "Create a new customer",
+        description = "Creates a new customer with the provided email address."
     )
     @ApiResponse(
         responseCode = "201",
