@@ -2,6 +2,8 @@ package com.github.thorlauridsen.dto
 
 import com.github.thorlauridsen.model.CustomerInput
 import io.swagger.v3.oas.annotations.media.Schema
+import jakarta.validation.constraints.Email
+import jakarta.validation.constraints.NotBlank
 
 /**
  * Data transfer object used to create a new customer.
@@ -16,6 +18,8 @@ import io.swagger.v3.oas.annotations.media.Schema
     """,
 )
 data class CustomerInputDto(
+    @get:NotBlank(message = "Email is required")
+    @get:Email(message = "Invalid email format")
     val mail: String,
 ) {
 

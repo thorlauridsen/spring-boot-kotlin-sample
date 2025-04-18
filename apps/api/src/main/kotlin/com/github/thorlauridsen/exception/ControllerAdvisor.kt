@@ -2,10 +2,14 @@ package com.github.thorlauridsen.exception
 
 import com.github.thorlauridsen.dto.ErrorDto
 import org.slf4j.LoggerFactory
+import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
+import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.MethodArgumentNotValidException
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
+import org.springframework.web.context.request.WebRequest
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler
 
 /**
@@ -30,6 +34,35 @@ class ControllerAdvisor : ResponseEntityExceptionHandler() {
             exception = exception,
             httpStatus = exception.httpStatus
         )
+    }
+
+    /**
+     * Handles validation exceptions.
+     * Overrides the default handler in ResponseEntityExceptionHandler.
+     * If a [MethodArgumentNotValidException] is thrown, this method
+     * will catch it and return a response entity with an [ErrorDto].
+     * The returned HTTP status code will be 400 Bad Request.
+     * @param exception The validation exception to handle.
+     * @param headers The headers for the response.
+     * @param status The status code for the response.
+     * @param request The current request.
+     * @return A response entity with an [ErrorDto] containing field errors.
+     */
+    override fun handleMethodArgumentNotValid(
+        exception: MethodArgumentNotValidException,
+        headers: HttpHeaders,
+        status: HttpStatusCode,
+        request: WebRequest
+    ): ResponseEntity<Any> {
+        val fieldErrors = exception.bindingResult.fieldErrors.associate {
+            it.field to (it.defaultMessage ?: "Invalid value")
+        }
+        val errorDto = ErrorDto(
+            description = "Validation failed",
+            fieldErrors = fieldErrors
+        )
+        logger.error("Validation failed: $fieldErrors", exception)
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorDto)
     }
 
     /**

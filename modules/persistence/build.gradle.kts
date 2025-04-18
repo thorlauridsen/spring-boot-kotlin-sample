@@ -11,7 +11,7 @@ dependencies {
     // Persistence subproject needs to know about the model subproject
     implementation(projects.model)
 
-    // JetBrains Exposed - Kotlin SQL library
+    // JetBrains Exposed - a Kotlin SQL library
     implementation(local.exposed.springboot.starter)
 }
 

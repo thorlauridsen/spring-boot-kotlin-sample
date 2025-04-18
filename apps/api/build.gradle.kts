@@ -12,6 +12,7 @@ dependencies {
 	// Spring Boot dependencies
 	implementation(local.springboot.starter)
 	implementation(local.springboot.starter.web)
+	implementation(local.springboot.starter.validation)
 
 	// Springdoc for swagger docs supporting Spring Web MVC
 	implementation(local.springdoc.openapi.starter.webmvc)
@@ -26,7 +27,7 @@ dependencies {
 	runtimeOnly(local.postgres)
 
 	// FasterXML Jackson module for Kotlin support
-	implementation(local.jackson.module.kotlin)
+	implementation(local.bundles.jackson)
 
 	// Test dependencies
 	testImplementation(local.springboot.starter.test)

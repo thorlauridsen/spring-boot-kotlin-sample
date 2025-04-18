@@ -4,6 +4,7 @@ import com.github.thorlauridsen.dto.CustomerDto
 import com.github.thorlauridsen.dto.CustomerInputDto
 import com.github.thorlauridsen.dto.toDto
 import com.github.thorlauridsen.service.CustomerService
+import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import java.net.URI
@@ -42,7 +43,7 @@ class CustomerController(private val customerService: CustomerService) : ICustom
      * @param customer [CustomerInputDto] to save.
      * @return Saved [CustomerDto]
      */
-    override fun post(customer: CustomerInputDto): ResponseEntity<CustomerDto> {
+    override fun post(@Valid customer: CustomerInputDto): ResponseEntity<CustomerDto> {
         val savedCustomer = customerService.save(customer.toModel())
 
         val location = URI.create("$CUSTOMER_BASE_ENDPOINT/${savedCustomer.id}")

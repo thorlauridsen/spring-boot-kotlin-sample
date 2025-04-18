@@ -8,17 +8,22 @@ import java.time.ZoneOffset
  * Data class representing an error.
  * @param description Description of the error.
  * @param time Time of the error in UTC.
+ * @param fieldErrors Map of field names to error messages for validation errors.
  */
 @Schema(
     description = "Data transfer object for an error",
     example = """
     { 
-        "description": "Customer not found with id: 3fa85f64-5717-4562-b3fc-2c963f66afa6",
-        "time": "2025-03-13T18:39:00.4900802Z"
+        "description": "Validation failed",
+        "time": "2025-03-13T18:39:00.4900802Z",
+        "fieldErrors": {
+            "mail": "Invalid email format"
+        }
     }
     """,
 )
 data class ErrorDto(
     val description: String,
     val time: OffsetDateTime = OffsetDateTime.now(ZoneOffset.UTC),
+    val fieldErrors: Map<String, String> = emptyMap(),
 )
