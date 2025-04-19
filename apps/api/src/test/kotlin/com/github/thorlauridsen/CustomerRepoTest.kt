@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Assertions.assertNull
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import java.util.UUID
@@ -20,9 +22,14 @@ class CustomerRepoTest(
     @Autowired private val customerRepo: ICustomerRepo,
 ) {
 
-    @Test
-    fun `save customer - get customer - success`() {
-        val mail = "test@example.com"
+    @ParameterizedTest
+    @ValueSource(
+        strings = [
+            "alice@gmail.com",
+            "bob@gmail.com",
+        ]
+    )
+    fun `save customer - get customer - success`(mail: String) {
         val customer = CustomerInput(mail)
 
         val savedCustomer = customerRepo.save(customer)
