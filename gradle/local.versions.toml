@@ -21,7 +21,7 @@ h2database = { module = "com.h2database:h2", version.ref = "h2database" }
 jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
-# Test libraries
+# Test dependencies
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
@@ -31,7 +31,7 @@ liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liqui
 # PostgreSQL for a live database
 postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 
-# Spring Boot libraries
+# Spring Boot dependencies
 springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springboot" }
