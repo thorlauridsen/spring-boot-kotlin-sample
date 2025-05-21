@@ -17,6 +17,9 @@ dependencies {
 	// Springdoc for swagger docs supporting Spring Web MVC
 	implementation(local.springdoc.openapi.starter.webmvc)
 
+	// FasterXML Jackson kotlin module and support for Java 8 date/time
+	implementation(local.bundles.jackson)
+
 	// Liquibase for database migrations
 	runtimeOnly(local.liquibase.core)
 
@@ -25,9 +28,6 @@ dependencies {
 
 	// PostgreSQL database driver
 	runtimeOnly(local.postgres)
-
-	// FasterXML Jackson kotlin module and support for Java 8 date/time
-	implementation(local.bundles.jackson)
 
 	// Test dependencies
 	testImplementation(local.springboot.starter.test)
