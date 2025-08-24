@@ -39,6 +39,17 @@ to view the Swagger documentation.
 - [PostgreSQL](https://www.postgresql.org/) - Open-source relational database
 - [H2database](https://github.com/h2database/h2database) - Provides an in-memory database for simple local testing
 - [Liquibase](https://github.com/liquibase/liquibase) - Used to manage database schema changelogs
+- [Testcontainers](https://github.com/testcontainers) - Creates a temporary PostgreSQL database for tests
+
+## Testing
+You can run the tests for this project using the following command:
+```
+./gradlew test
+```
+Please note that this project uses 
+[Testcontainers](https://github.com/testcontainers) 
+to create a temporary PostgreSQL database for tests. This requires
+a local Docker instance to be running when executing the tests.
 
 ## Gradle best practices for Kotlin
 [kotlinlang.org](https://kotlinlang.org/docs/gradle-best-practices.html)
