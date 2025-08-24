@@ -9,6 +9,7 @@ postgres = "42.7.7"
 springboot = "3.5.5"
 springDependencyPlugin = "1.1.7"
 springdoc = "2.8.11"
+testcontainers = "1.21.3"
 
 [libraries]
 # JetBrains Exposed provides a lightweight Kotlin SQL library
@@ -36,6 +37,10 @@ springboot-starter = { module = "org.springframework.boot:spring-boot-starter", 
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springboot" }
 springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
+springboot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "springboot" }
+
+# Testcontainers for running PostgreSQL in tests
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
 
 # Springdoc provides swagger docs with support for Spring Web MVC
 springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }
