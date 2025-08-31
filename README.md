@@ -52,7 +52,7 @@ to create a temporary PostgreSQL database for tests. This requires
 a local Docker instance to be running when executing the tests.
 
 ## Gradle best practices for Kotlin
-[kotlinlang.org](https://kotlinlang.org/docs/gradle-best-practices.html)
+[docs.gradle.org](https://docs.gradle.org/current/userguide/performance.html) - [kotlinlang.org](https://kotlinlang.org/docs/gradle-best-practices.html)
 
 ### ✅ Use Kotlin DSL
 This project uses Kotlin DSL instead of the traditional Groovy DSL by 
