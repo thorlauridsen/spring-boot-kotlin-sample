@@ -2,7 +2,7 @@
 exposed = "0.61.0"
 h2database = "2.4.240"
 jackson = "2.20.0"
-junitPlatformLauncher = "1.12.2"
+junitPlatformLauncher = "6.0.0"
 kotlin = "2.2.20"
 liquibase = "4.33.0"
 postgres = "42.7.8"
