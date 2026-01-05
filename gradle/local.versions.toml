@@ -2,12 +2,12 @@
 exposed = "0.61.0"
 h2database = "2.4.240"
 jackson = "2.20.1"
-junitPlatformLauncher = "1.12.2"
+junit-platform-launcher = "1.12.2"
 kotlin = "2.3.0"
 liquibase = "5.0.1"
 postgres = "42.7.8"
 springboot = "3.5.9"
-springDependencyPlugin = "1.1.7"
+spring-dependency-plugin = "1.1.7"
 springdoc = "2.8.15"
 testcontainers = "1.21.4"
 
@@ -23,7 +23,7 @@ jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-dat
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
 # Test dependencies
-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junitPlatformLauncher" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
 # Liquibase for managing database changelogs
@@ -47,7 +47,7 @@ springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-s
 
 [plugins]
 springboot = { id = "org.springframework.boot", version.ref = "springboot" }
-spring-dependencies = { id = "io.spring.dependency-management", version.ref = "springDependencyPlugin" }
+spring-dependencies = { id = "io.spring.dependency-management", version.ref = "spring-dependency-plugin" }
 
 [bundles]
 jackson = ["jackson-module-kotlin", "jackson-datatype-jsr310"]
