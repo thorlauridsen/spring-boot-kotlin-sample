@@ -8,7 +8,7 @@ liquibase = "5.0.1"
 postgres = "42.7.9"
 springboot = "3.5.9"
 spring-dependency-plugin = "1.1.7"
-springdoc = "2.8.15"
+springdoc = "3.0.1"
 testcontainers = "1.21.4"
 
 [libraries]
