@@ -1,5 +1,5 @@
 [versions]
-exposed = "0.61.0"
+exposed = "1.0.0"
 h2database = "2.4.240"
 jackson = "2.21.0"
 junit-platform-launcher = "1.12.2"
