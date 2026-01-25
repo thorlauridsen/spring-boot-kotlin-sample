@@ -1,45 +1,39 @@
 [versions]
-exposed = "0.61.0"
+exposed = "1.0.0"
 h2database = "2.4.240"
-jackson = "2.21.0"
-junit-platform-launcher = "1.12.2"
+junit-platform-launcher = "6.0.1"
 kotlin = "2.3.0"
-liquibase = "5.0.1"
-postgres = "42.7.9"
-springboot = "3.5.10"
+postgres = "42.7.8"
+springboot = "4.0.2"
 spring-dependency-plugin = "1.1.7"
-springdoc = "2.8.15"
+springdoc = "3.0.1"
 testcontainers = "1.21.4"
 
 [libraries]
 # JetBrains Exposed provides a lightweight Kotlin SQL library
-exposed-springboot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed" }
+exposed-springboot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot4-starter", version.ref = "exposed" }
 
 # H2 for an in-memory database
 h2database = { module = "com.h2database:h2", version.ref = "h2database" }
-
-# FasterXML Jackson kotlin module and support for Java 8 date/time
-jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310", version.ref = "jackson" }
-jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jackson" }
 
 # Test dependencies
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform-launcher" }
 kotlin-test-junit5 = { module = "org.jetbrains.kotlin:kotlin-test-junit5", version.ref = "kotlin" }
 
-# Liquibase for managing database changelogs
-liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
-
 # PostgreSQL for a live database
 postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 
 # Spring Boot dependencies
+springboot-resttestclient = { module = 'org.springframework.boot:spring-boot-resttestclient', version.ref = "springboot" }
 springboot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "springboot" }
+springboot-starter-liquibase = { module = "org.springframework.boot:spring-boot-starter-liquibase", version.ref = "springboot" }
 springboot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springboot" }
 springboot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springboot" }
-springboot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springboot" }
+springboot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc", version.ref = "springboot" }
 springboot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "springboot" }
 
 # Testcontainers for running PostgreSQL in tests
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
 testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
 
 # Springdoc provides swagger docs with support for Spring Web MVC
@@ -48,6 +42,3 @@ springdoc-openapi-starter-webmvc = { module = "org.springdoc:springdoc-openapi-s
 [plugins]
 springboot = { id = "org.springframework.boot", version.ref = "springboot" }
 spring-dependencies = { id = "io.spring.dependency-management", version.ref = "spring-dependency-plugin" }
-
-[bundles]
-jackson = ["jackson-module-kotlin", "jackson-datatype-jsr310"]

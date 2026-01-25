@@ -1,18 +1,23 @@
 package com.github.thorlauridsen
 
+import com.github.thorlauridsen.exception.CustomerNotFoundException
 import com.github.thorlauridsen.model.Customer
 import com.github.thorlauridsen.model.CustomerInput
-import com.github.thorlauridsen.exception.CustomerNotFoundException
 import com.github.thorlauridsen.service.CustomerService
+import java.util.UUID
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.context.SpringBootTest
-import java.util.UUID
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection
+import org.springframework.test.context.ActiveProfiles
+import org.testcontainers.containers.PostgreSQLContainer
+import org.testcontainers.junit.jupiter.Container
+import org.testcontainers.junit.jupiter.Testcontainers
 
 /**
  * Test class for testing the [CustomerService].
@@ -20,10 +25,19 @@ import org.junit.jupiter.params.provider.ValueSource
  * This ensures that Spring can automatically inject [CustomerService] with a CustomerRepo
  * @param customerService The [CustomerService] to test.
  */
+@ActiveProfiles("postgres")
 @SpringBootTest
+@Testcontainers
 class CustomerServiceTest(
     @Autowired private val customerService: CustomerService,
 ) {
+
+    companion object {
+        @Container
+        @ServiceConnection
+        @Suppress("unused")
+        val postgres = PostgreSQLContainer("postgres:18")
+    }
 
     @Test
     fun `get customer - random id - returns not found`() {

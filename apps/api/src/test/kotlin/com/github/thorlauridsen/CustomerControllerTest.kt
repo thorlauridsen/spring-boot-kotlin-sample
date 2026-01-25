@@ -1,6 +1,5 @@
 package com.github.thorlauridsen
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.thorlauridsen.controller.CUSTOMER_BASE_ENDPOINT
 import com.github.thorlauridsen.dto.CustomerDto
 import com.github.thorlauridsen.dto.CustomerInputDto
@@ -13,29 +12,41 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Import
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection
 import org.springframework.http.HttpStatus
 import org.springframework.test.context.ActiveProfiles
-import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.client.RestTestClient
+import org.springframework.test.web.servlet.client.expectBody
+import org.testcontainers.containers.PostgreSQLContainer
+import org.testcontainers.junit.jupiter.Container
+import org.testcontainers.junit.jupiter.Testcontainers
+import tools.jackson.databind.json.JsonMapper
 
 /**
  * Test class for testing the CustomerController.
- * This class extends the [BaseMockMvc] class so this will spin up a Spring Boot instance for the tests.
+ * This class extends the [BaseControllerTest] class so this will spin up a Spring Boot instance for the tests.
  * A local Docker instance is required to run the tests as Testcontainers is used.
- * @param mockMvc The MockMvc instance to use for testing.
  */
 @ActiveProfiles("postgres")
-@Import(TestContainerConfig::class)
+@Testcontainers
 class CustomerControllerTest(
-    @Autowired mockMvc: MockMvc,
-    @Autowired private val objectMapper: ObjectMapper
-) : BaseMockMvc(mockMvc) {
+    @Autowired private val jsonMapper: JsonMapper,
+    @Autowired private val restTestClient: RestTestClient
+) : BaseControllerTest(restTestClient) {
+
+    companion object {
+        @Container
+        @ServiceConnection
+        @Suppress("unused")
+        val postgres = PostgreSQLContainer("postgres:18")
+    }
 
     @Test
     fun `get customer - random id - returns not found`() {
         val id = UUID.randomUUID()
-        val response = mockGet("$CUSTOMER_BASE_ENDPOINT/$id")
-        assertEquals(HttpStatus.NOT_FOUND.value(), response.status)
+        val response = get("$CUSTOMER_BASE_ENDPOINT/$id")
+
+        response.expectStatus().isEqualTo(HttpStatus.NOT_FOUND)
     }
 
     @ParameterizedTest
@@ -47,33 +58,34 @@ class CustomerControllerTest(
     )
     fun `post customer - get customer - success`(mail: String) {
         val customer = CustomerInputDto(mail)
-        val json = objectMapper.writeValueAsString(customer)
-        val response = mockPost(json, CUSTOMER_BASE_ENDPOINT)
-        assertEquals(HttpStatus.CREATED.value(), response.status)
+        val json = jsonMapper.writeValueAsString(customer)
+        val response = post(CUSTOMER_BASE_ENDPOINT, json)
+        response.expectStatus().isEqualTo(HttpStatus.CREATED)
 
-        val responseJson = response.contentAsString
-        val createdCustomer = objectMapper.readValue(responseJson, CustomerDto::class.java)
+        val createdCustomer = response.expectBody<CustomerDto>().returnResult().responseBody
+
+        requireNotNull(createdCustomer)
         assertCustomer(createdCustomer, mail)
 
-        val response2 = mockGet("$CUSTOMER_BASE_ENDPOINT/${createdCustomer.id}")
-        assertEquals(HttpStatus.OK.value(), response2.status)
+        val response2 = get("$CUSTOMER_BASE_ENDPOINT/${createdCustomer.id}")
+        response2.expectStatus().isEqualTo(HttpStatus.OK)
 
-        val responseJson2 = response2.contentAsString
-        val fetchedCustomer = objectMapper.readValue(responseJson2, CustomerDto::class.java)
+        val fetchedCustomer = response2.expectBody<CustomerDto>().returnResult().responseBody
+
+        requireNotNull(fetchedCustomer)
         assertCustomer(fetchedCustomer, mail)
     }
 
     @Test
     fun `post customer - blank email - returns bad request`() {
         val customer = CustomerInputDto("")
-        val json = objectMapper.writeValueAsString(customer)
-        val response = mockPost(json, CUSTOMER_BASE_ENDPOINT)
+        val json = jsonMapper.writeValueAsString(customer)
+        val response = post(CUSTOMER_BASE_ENDPOINT, json)
+        response.expectStatus().isEqualTo(HttpStatus.BAD_REQUEST)
 
-        assertEquals(HttpStatus.BAD_REQUEST.value(), response.status)
+        val error = response.expectBody<ErrorDto>().returnResult().responseBody
 
-        val responseJson = response.contentAsString
-        val error = objectMapper.readValue(responseJson, ErrorDto::class.java)
-
+        requireNotNull(error)
         assertEquals("Validation failed", error.description)
         assertTrue(error.fieldErrors.containsKey("mail"))
         assertEquals("Email is required", error.fieldErrors["mail"])
@@ -82,14 +94,13 @@ class CustomerControllerTest(
     @Test
     fun `post customer - invalid email format - returns bad request`() {
         val customer = CustomerInputDto("invalid-email")
-        val json = objectMapper.writeValueAsString(customer)
-        val response = mockPost(json, CUSTOMER_BASE_ENDPOINT)
+        val json = jsonMapper.writeValueAsString(customer)
+        val response = post(CUSTOMER_BASE_ENDPOINT, json)
+        response.expectStatus().isEqualTo(HttpStatus.BAD_REQUEST)
 
-        assertEquals(HttpStatus.BAD_REQUEST.value(), response.status)
+        val error = response.expectBody<ErrorDto>().returnResult().responseBody
 
-        val responseJson = response.contentAsString
-        val error = objectMapper.readValue(responseJson, ErrorDto::class.java)
-
+        requireNotNull(error)
         assertEquals("Validation failed", error.description)
         assertTrue(error.fieldErrors.containsKey("mail"))
         assertEquals("Invalid email format", error.fieldErrors["mail"])
