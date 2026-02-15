@@ -1,7 +1,7 @@
 [versions]
 exposed = "1.0.0"
 h2database = "2.4.240"
-junit-platform-launcher = "6.0.2"
+junit-platform-launcher = "6.0.3"
 kotlin = "2.3.10"
 postgres = "42.7.10"
 springboot = "4.0.2"
