@@ -6,7 +6,7 @@ kotlin = "2.4.21"
 postgres = "42.7.14"
 springboot = "4.1.2"
 spring-dependency-plugin = "1.1.7"
-springdoc = "3.1.1"
+springdoc = "3.2.0"
 testcontainers = "1.21.4"
 
 [libraries]
